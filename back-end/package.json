@@ -7,6 +7,7 @@
     "start": "node ./src/bin/server.js"
   },
   "dependencies": {
+    "@prisma/client": "^6.15.0",
     "chalk": "^5.4.1",
     "cookie-parser": "^1.4.7",
     "express": "^5.1.0",
