@@ -20,3 +20,19 @@ model Categoria {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   descricao   String
 }
+
+model Cliente {
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  nome              String
+  cpf               String    @unique     // Não pode se repetir na coleção
+  data_nascimento   DateTime? // opcional
+  email             String    @unique
+  logradouro        String    
+  num_imovel        String
+  complemento       String?   // opcional
+  bairro            String
+  municipio         String
+  uf                String
+  cep               String
+  celular           String
+}
