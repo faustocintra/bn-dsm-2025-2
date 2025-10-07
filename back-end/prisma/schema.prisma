@@ -35,4 +35,31 @@ model Cliente {
   uf                String
   cep               String
   celular           String
+  pedidos           Pedido[]
 }
+
+model Fornecedor {
+  id                String        @id @default(auto()) @map("_id") @db.ObjectId
+  razao_social      String
+  nome_fantasia     String?
+  cnpj              String        @unique
+  email             String        @unique
+  logradouro        String
+  num_casa          String
+  complemento       String?
+  bairro            String
+  municipio         String
+  uf                String
+  cep               String
+  celular           String
+}
+
+model Pedido {
+  id                String        @id @default(auto()) @map("_id") @db.ObjectId
+  num_pedido        Int           @unique
+  data_hora         DateTime      @default(now())
+  cliente_id        String        @db.ObjectId
+  cliente           Cliente       @relation(fields: [cliente_id], references: [id])
+}
+
+
